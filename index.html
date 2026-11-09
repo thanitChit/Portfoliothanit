@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - นาย ฐนิต ชิตร (ไนท์) | รัฐศาสตร์ ธรรมศาสตร์</title>
+    <!-- Google Fonts: Sarabun -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome สำหรับไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #8B0000;
+            --dark-red: #5C0000;
+            --accent-gold: #D4AF37;
+            --light-gold: #F3E5AB;
+            --bg-color: #F9F9F9;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(139, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+        }
+
+        .nav-brand img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        header.hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .hero-text h2 {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .badge-uni {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 30px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .badge-uni img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .hero-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 4px solid var(--accent-gold);
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section {
+            padding-top: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--accent-gold);
+            bottom: 0;
+            left: 20%;
+        }
+
+        /* Profile Section */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h3 {
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .info-list li {
+            display: flex;
+            gap: 15px;
+        }
+
+        .info-list strong {
+            min-width: 130px;
+            color: var(--dark-red);
+        }
+
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            color: var(--dark-red);
+            transform: translateY(-3px);
+        }
+
+        /* Portfolio Gallery Section */
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.15);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .portfolio-card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-card-content h3 {
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* Modal ภาพขยาย */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            border: 3px solid var(--accent-gold);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-red);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        @media(max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .badge-uni {
+                margin: 0 auto 20px;
+            }
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-brand">
+            <img src="ดีไซน์ที่ยังไม่ได้ตั้งชื่อ (3).png" alt="Thammasat Logo">
+            <span>THANIIT PORTFOLIO</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#profile">ประวัติส่วนตัว</a></li>
+            <li><a href="#portfolio-book">เล่มพอร์ตโฟลิโอ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge-uni">
+                    <img src="ดีไซน์ที่ยังไม่ได้ตั้งชื่อ (3).png" alt="Thammasat Logo">
+                    คณะรัฐศาสตร์ มหาวิทยาลัยธรรมศาสตร์
+                </div>
+                <h2>Portfolio Online</h2>
+                <h1>นาย ฐนิต ชิตร</h1>
+                <p>โครงการช้างเผือก สาขาการเมืองการปกครอง โรงเรียนทุ่งใหญ่เฉลิมราชอนุสรณ์ รัชมังคลาภิเษก</p>
+                <a href="#portfolio-book" style="display: inline-block; background: var(--accent-gold); color: var(--dark-red); padding: 12px 30px; border-radius: 30px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">ดูเล่มพอร์ตโฟลิโอ</a>
+            </div>
+            <div class="hero-image">
+                <img src="S__93667374_0.jpg" alt="นาย ฐนิต ชิตร">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Profile Section -->
+        <section id="profile">
+            <div class="section-title">
+                <h2>ประวัติส่วนตัว</h2>
+            </div>
+            <div class="profile-grid">
+                <div class="profile-img-box">
+                    <img src="S__93667374_0.jpg" alt="Profile Photo">
+                </div>
+                <div class="profile-info">
+                    <h3>Personal Information</h3>
+                    <ul class="info-list">
+                        <li><strong>ชื่อ - นามสกุล:</strong> นาย ฐนิต ชิตร</li>
+                        <li><strong>ชื่อเล่น:</strong> ไนท์ (อายุ 18 ปี)</li>
+                        <li><strong>สัญชาติ / เชื้อชาติ:</strong> ไทย / ไทย</li>
+                        <li><strong>งานอดิเรก:</strong> อ่านหนังสือ</li>
+                        <li><strong>ที่อยู่ปัจจุบัน:</strong> 85/1 หมู่ที่ 4 ตำบลถ้ำพรรณรา อำเภอถ้ำพรรณรา จังหวัดนครศรีธรรมราช</li>
+                        <li><strong>บิดา:</strong> นาย ชัยยันต์ ชิตร (อายุ 58 ปี) - อาชีพ ทำสวน</li>
+                        <li><strong>มารดา:</strong> นางสาว วิสาข์ ลลอย (อายุ 43 ปี) - อาชีพ ทำสวน</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Thanit Chit" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/thanit_ex" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="tel:0654071586" title="Phone"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:nightth2008@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Pages Section -->
+        <section id="portfolio-book" style="margin-top: 60px;">
+            <div class="section-title">
+                <h2>เล่มพอร์ตโฟลิโอแต่ละหน้า</h2>
+                <p style="color: #666; margin-top: 10px;">คลิกที่รูปภาพเพื่อดูภาพขนาดใหญ่</p>
+            </div>
+            
+            <div class="portfolio-gallery">
+                <div class="portfolio-card" onclick="openModal('1.jpg')">
+                    <img src="1.jpg" alt="หน้า 1">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 1: ปก Portfolio</h3>
+                        <p>หน้าปกโครงการช้างเผือก รัฐศาสตร์ ม.ธรรมศาสตร์</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('2.jpg')">
+                    <img src="2.jpg" alt="หน้า 2">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 2: Statement of Purpose</h3>
+                        <p>จุดเริ่มต้นความสนใจและความตั้งใจในการพัฒนาตนเอง</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('4.jpg')">
+                    <img src="4.jpg" alt="หน้า 4">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 4: ประวัติส่วนตัวและการศึกษา</h3>
+                        <p>ข้อมูลส่วนตัว ประวัติการศึกษา และช่องทางการติดต่อ</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('6.jpg')">
+                    <img src="6.jpg" alt="หน้า 6">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 6: ผลงานที่โดดเด่น (1)</h3>
+                        <p>หลักสูตรจิตอาสา 904 และประธานสภาเด็กและเยาวชน</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('7.jpg')">
+                    <img src="7.jpg" alt="หน้า 7">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 7: ผลงานที่โดดเด่น (2)</h3>
+                        <p>หัวหน้านักศึกษาวิชาทหาร และประธานชมรม TO BE NUMBER ONE</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('8.jpg')">
+                    <img src="8.jpg" alt="หน้า 8">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 8: กิจกรรมที่เข้าร่วม (1)</h3>
+                        <p>กิจกรรมจิตอาสา งานวันพ่อ วันเด็ก และกีฬาภายใน</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('9.jpg')">
+                    <img src="9.jpg" alt="หน้า 9">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 9: กิจกรรมที่เข้าร่วม (2)</h3>
+                        <p>ค่ายพัฒนาศักยภาพ, ฝึก CPR และกิจกรรมวันแม่แห่งชาติ</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('10.jpg')">
+                    <img src="10.jpg" alt="หน้า 10">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 10: กิจกรรมที่เข้าร่วม (3)</h3>
+                        <p>กิจกรรมราชสีห์ผู้พิทักษ์ความดี และพิธีเฉลิมพระชนมพรรษา</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('11.jpg')">
+                    <img src="11.jpg" alt="หน้า 11">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 11: เกียรติบัตรที่ได้รับ</h3>
+                        <p>รวมเกียรติบัตรและรางวัลแห่งความภาคภูมิใจ</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" onclick="openModal('12.jpg')">
+                    <img src="12.jpg" alt="หน้า 12">
+                    <div class="portfolio-card-content">
+                        <h3>หน้า 12: Thank You</h3>
+                        <p>จากความหลงใหล สู่ความตั้งใจในสายใยรัฐศาสตร์</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal สำหรับขยายรูปพอร์ต -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImg" src="" alt="Zoomed Portfolio">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 นาย ฐนิต ชิตร (ไนท์) | คณะรัฐศาสตร์ มหาวิทยาลัยธรรมศาสตร์</p>
+        <p style="font-size: 0.9rem; margin-top: 5px; color: var(--accent-gold);">Portfolio Website Created for Admission</p>
+    </footer>
+
+    <!-- JavaScript สำหรับคลิกขยายรูป -->
+    <script>
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
